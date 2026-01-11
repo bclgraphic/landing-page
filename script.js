@@ -61,81 +61,75 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Packages Slider with Swipe Functionality
+// Packages Slider with Arrow Navigation
 const packagesSlider = document.getElementById('packagesSlider');
+const packagesSliderContainer = packagesSlider?.parentElement;
 const progressDots = document.querySelectorAll('.progress-dot');
-let currentSlide = 0;
-const totalSlides = 5;
+const arrowLeft = document.getElementById('packageArrowLeft');
+const arrowRight = document.getElementById('packageArrowRight');
 
-if (packagesSlider && progressDots.length > 0) {
-    // Touch/swipe handling
-    let startX = 0;
-    let scrollLeft = 0;
-    let isDown = false;
+let currentIndex = 0;
+const totalPackages = 5;
 
-    packagesSlider.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - packagesSlider.offsetLeft;
-        scrollLeft = packagesSlider.scrollLeft;
-    });
+if (packagesSlider && packagesSliderContainer && progressDots.length > 0) {
+    // Get number of visible packages based on screen size
+    function getVisiblePackages() {
+        const width = window.innerWidth;
+        if (width <= 768) return 1; // Mobile: 1 package
+        if (width <= 1024) return 2; // Tablet: 2 packages
+        return 3; // Desktop: 3 packages
+    }
 
-    packagesSlider.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
+    // Calculate maximum index based on visible packages
+    function getMaxIndex() {
+        const visible = getVisiblePackages();
+        return Math.max(0, totalPackages - visible);
+    }
 
-    packagesSlider.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    packagesSlider.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - packagesSlider.offsetLeft;
-        const walk = (x - startX) * 2;
-        packagesSlider.scrollLeft = scrollLeft - walk;
-    });
-
-    // Touch events for mobile
-    let touchStartX = 0;
-    let touchScrollLeft = 0;
-
-    packagesSlider.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].pageX - packagesSlider.offsetLeft;
-        touchScrollLeft = packagesSlider.scrollLeft;
-    });
-
-    packagesSlider.addEventListener('touchmove', (e) => {
-        if (!touchStartX) return;
-        const x = e.touches[0].pageX - packagesSlider.offsetLeft;
-        const walk = (x - touchStartX) * 1.5;
-        packagesSlider.scrollLeft = touchScrollLeft - walk;
-    });
-
-    // Update progress dots based on scroll position
-    packagesSlider.addEventListener('scroll', () => {
-        const slideWidth = packagesSlider.offsetWidth;
-        const scrollPosition = packagesSlider.scrollLeft;
-        currentSlide = Math.round(scrollPosition / slideWidth);
+    // Update slider position
+    function updateSliderPosition() {
+        if (packagesSlider.children.length === 0) return;
         
+        const firstCard = packagesSlider.children[0];
+        const cardWidth = firstCard.offsetWidth;
+        const gap = 24; // Gap between cards
+        const translateX = -(currentIndex * (cardWidth + gap));
+        
+        packagesSlider.style.transform = `translateX(${translateX}px)`;
+        
+        updateArrowStates();
         updateProgressDots();
-    });
+    }
 
-    // Progress dots click navigation
-    progressDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const slideWidth = packagesSlider.offsetWidth;
-            packagesSlider.scrollTo({
-                left: slideWidth * index,
-                behavior: 'smooth'
-            });
-            currentSlide = index;
-            updateProgressDots();
-        });
-    });
+    // Update arrow disabled states
+    function updateArrowStates() {
+        const maxIndex = getMaxIndex();
+        
+        if (arrowLeft) {
+            if (currentIndex === 0) {
+                arrowLeft.classList.add('disabled');
+            } else {
+                arrowLeft.classList.remove('disabled');
+            }
+        }
+        
+        if (arrowRight) {
+            if (currentIndex >= maxIndex) {
+                arrowRight.classList.add('disabled');
+            } else {
+                arrowRight.classList.remove('disabled');
+            }
+        }
+    }
 
+    // Update progress dots
     function updateProgressDots() {
+        const visible = getVisiblePackages();
+        const maxIndex = getMaxIndex();
+        const activeDotIndex = Math.min(currentIndex, maxIndex);
+        
         progressDots.forEach((dot, index) => {
-            if (index === currentSlide) {
+            if (index === activeDotIndex) {
                 dot.classList.add('active');
             } else {
                 dot.classList.remove('active');
@@ -143,36 +137,71 @@ if (packagesSlider && progressDots.length > 0) {
         });
     }
 
-    // Auto-scroll on mobile (optional)
-    if (window.innerWidth <= 768) {
-        let autoScrollInterval;
-        
-        function startAutoScroll() {
-            autoScrollInterval = setInterval(() => {
-                if (currentSlide < totalSlides - 1) {
-                    currentSlide++;
-                } else {
-                    currentSlide = 0;
-                }
-                const slideWidth = packagesSlider.offsetWidth;
-                packagesSlider.scrollTo({
-                    left: slideWidth * currentSlide,
-                    behavior: 'smooth'
-                });
-                updateProgressDots();
-            }, 5000);
+    // Navigate to next packages
+    function slideNext() {
+        const maxIndex = getMaxIndex();
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSliderPosition();
         }
+    }
 
-        packagesSlider.addEventListener('mouseenter', () => {
-            clearInterval(autoScrollInterval);
+    // Navigate to previous packages
+    function slidePrev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSliderPosition();
+        }
+    }
+
+    // Arrow button event listeners
+    if (arrowRight) {
+        arrowRight.addEventListener('click', () => {
+            if (!arrowRight.classList.contains('disabled')) {
+                slideNext();
+            }
         });
+    }
 
-        packagesSlider.addEventListener('mouseleave', () => {
-            startAutoScroll();
+    if (arrowLeft) {
+        arrowLeft.addEventListener('click', () => {
+            if (!arrowLeft.classList.contains('disabled')) {
+                slidePrev();
+            }
         });
+    }
 
-        // Start auto-scroll initially
-        startAutoScroll();
+    // Progress dots click navigation
+    progressDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            const maxIndex = getMaxIndex();
+            currentIndex = Math.min(index, maxIndex);
+            updateSliderPosition();
+        });
+    });
+
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const maxIndex = getMaxIndex();
+            // Adjust currentIndex if it exceeds maxIndex after resize
+            if (currentIndex > maxIndex) {
+                currentIndex = maxIndex;
+            }
+            updateSliderPosition();
+        }, 250);
+    });
+
+    // Initialize on page load
+    // Wait for layout to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(updateSliderPosition, 100);
+        });
+    } else {
+        setTimeout(updateSliderPosition, 100);
     }
 }
 
