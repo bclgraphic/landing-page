@@ -380,18 +380,3 @@ document.querySelectorAll('.category-card').forEach(card => {
 // Console welcome message
 console.log('%c🏥 Diagnostic Lab Surat', 'color: #2563EB; font-size: 20px; font-weight: bold;');
 console.log('%cWelcome! This page is built with modern web technologies.', 'color: #6B7280; font-size: 14px;');
-
-// Handle window resize for packages slider
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        if (packagesSlider) {
-            const slideWidth = packagesSlider.offsetWidth;
-            packagesSlider.scrollTo({
-                left: slideWidth * currentSlide,
-                behavior: 'smooth'
-            });
-        }
-    }, 250);
-});
