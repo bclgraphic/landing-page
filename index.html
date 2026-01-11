@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trusted diagnostic lab in Surat - Free home blood sample collection, NABL certified, accurate reports">
+    <title>Diagnostic Lab in Surat - Home Blood Sample Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="#2563EB"/>
+                        <path d="M20 12V28M12 20H28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">HealthDiagnostics</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#packages" class="nav-link">Packages</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#process" class="nav-link">Process</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="btn-primary nav-cta">Book Test</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Lead Generation Form -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Trusted Diagnostic Lab in <span class="highlight">Surat</span>
+                    </h1>
+                    <p class="hero-description">
+                        Get accurate blood test reports with free home sample collection. 
+                        NABL certified lab with experienced phlebotomists serving across Surat.
+                    </p>
+                    <div class="hero-features">
+                        <div class="hero-feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>Free Home Collection</span>
+                        </div>
+                        <div class="hero-feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>NABL Certified</span>
+                        </div>
+                        <div class="hero-feature-item">
+                            <span class="feature-check">✓</span>
+                            <span>24-48 Hour Reports</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-form-wrapper">
+                    <div class="lead-form-card">
+                        <h3 class="form-title">Book Your Test Now</h3>
+                        <p class="form-subtitle">Fill the form and our health advisor will contact you</p>
+                        <form class="lead-form" id="leadForm">
+                            <div class="form-group">
+                                <label for="leadName">Full Name</label>
+                                <input type="text" id="leadName" name="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="leadPhone">Phone Number</label>
+                                <input type="tel" id="leadPhone" name="phone" placeholder="+91 98765 43210" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="leadLocation">Location in Surat</label>
+                                <select id="leadLocation" name="location" required>
+                                    <option value="">Select your area</option>
+                                    <option value="adajan">Adajan</option>
+                                    <option value="vesu">Vesu</option>
+                                    <option value="city-light">City Light</option>
+                                    <option value="varachha">Varachha</option>
+                                    <option value="katargam">Katargam</option>
+                                    <option value="udhna">Udhna</option>
+                                    <option value="piplod">Piplod</option>
+                                    <option value="pal">Pal</option>
+                                    <option value="nanpura">Nanpura</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="leadTest">Select Test</label>
+                                <select id="leadTest" name="test" required>
+                                    <option value="">Choose a test</option>
+                                    <option value="full-body">Full Body Checkup</option>
+                                    <option value="thyroid">Thyroid Test</option>
+                                    <option value="diabetes">Diabetes Test</option>
+                                    <option value="heart">Heart Health</option>
+                                    <option value="women">Women Health</option>
+                                    <option value="senior">Senior Citizen Package</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary btn-full">Book Free Home Collection</button>
+                            <p class="form-note">By submitting, you agree to our terms & privacy policy</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Full Body Checkup Packages -->
+    <section id="packages" class="packages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Full Body Checkup Packages</h2>
+                <p class="section-description">
+                    Comprehensive health packages designed for complete wellness assessment
+                </p>
+            </div>
+            <div class="packages-slider-wrapper">
+                <div class="packages-slider" id="packagesSlider">
+                    <div class="package-card">
+                        <div class="package-badge">Most Popular</div>
+                        <h3 class="package-name">Basic Health Package</h3>
+                        <div class="package-price">
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">999</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>✓ Complete Blood Count (CBC)</li>
+                            <li>✓ Blood Sugar (Fasting)</li>
+                            <li>✓ Lipid Profile</li>
+                            <li>✓ Liver Function Test</li>
+                            <li>✓ Kidney Function Test</li>
+                        </ul>
+                        <button class="btn-primary btn-full">Book Now</button>
+                    </div>
+                    <div class="package-card">
+                        <div class="package-badge">Best Value</div>
+                        <h3 class="package-name">Comprehensive Health Package</h3>
+                        <div class="package-price">
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">2499</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>✓ All Basic Package Tests</li>
+                            <li>✓ Thyroid Profile (T3, T4, TSH)</li>
+                            <li>✓ Vitamin D & B12</li>
+                            <li>✓ HbA1c (Diabetes)</li>
+                            <li>✓ Complete Urine Analysis</li>
+                            <li>✓ ECG</li>
+                        </ul>
+                        <button class="btn-primary btn-full">Book Now</button>
+                    </div>
+                    <div class="package-card">
+                        <h3 class="package-name">Premium Health Package</h3>
+                        <div class="package-price">
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">3999</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>✓ All Comprehensive Tests</li>
+                            <li>✓ Complete Cardiac Profile</li>
+                            <li>✓ Cancer Screening Markers</li>
+                            <li>✓ Complete Hormone Profile</li>
+                            <li>✓ Bone Health Assessment</li>
+                            <li>✓ Full Body CT Scan</li>
+                        </ul>
+                        <button class="btn-primary btn-full">Book Now</button>
+                    </div>
+                    <div class="package-card">
+                        <h3 class="package-name">Executive Health Package</h3>
+                        <div class="package-price">
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">5999</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>✓ All Premium Tests</li>
+                            <li>✓ Advanced Cardiac Markers</li>
+                            <li>✓ Complete Cancer Panel</li>
+                            <li>✓ Advanced Liver & Kidney Tests</li>
+                            <li>✓ Full Body MRI</li>
+                            <li>✓ Doctor Consultation</li>
+                        </ul>
+                        <button class="btn-primary btn-full">Book Now</button>
+                    </div>
+                    <div class="package-card">
+                        <h3 class="package-name">Complete Wellness Package</h3>
+                        <div class="package-price">
+                            <span class="price-currency">₹</span>
+                            <span class="price-amount">8999</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>✓ All Executive Tests</li>
+                            <li>✓ Genetic Health Screening</li>
+                            <li>✓ Advanced Metabolic Panel</li>
+                            <li>✓ Complete Vitamin & Mineral Profile</li>
+                            <li>✓ Full Body PET Scan</li>
+                            <li>✓ Annual Health Monitoring</li>
+                        </ul>
+                        <button class="btn-primary btn-full">Book Now</button>
+                    </div>
+                </div>
+                <div class="packages-progress" id="packagesProgress">
+                    <span class="progress-dot active"></span>
+                    <span class="progress-dot"></span>
+                    <span class="progress-dot"></span>
+                    <span class="progress-dot"></span>
+                    <span class="progress-dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Why Choose Our Diagnostic Lab -->
+    <section id="services" class="why-choose-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Our Diagnostic Lab in Surat?</h2>
+                <p class="section-description">
+                    Trusted by hundreds of patients across Surat for accurate and reliable diagnostic services
+                </p>
+            </div>
+            <div class="why-choose-grid">
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Certified pathology lab in Surat</h4>
+                </div>
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Free home blood sample collection</h4>
+                </div>
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Experienced & trained phlebotomists</h4>
+                </div>
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Safe and hygienic collection process</h4>
+                </div>
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Fast & accurate diagnostic reports</h4>
+                </div>
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Reports via WhatsApp & Email</h4>
+                </div>
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Affordable blood test services in Surat</h4>
+                </div>
+                <div class="why-choose-item">
+                    <div class="checkmark-icon">✓</div>
+                    <h4>Trusted by hundreds of patients locally</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: How Home Blood Sample Collection Works -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How Home Blood Sample Collection Works in Surat</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-card">
+                    <div class="step-badge">1</div>
+                    <div class="process-icon blue">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="24" fill="#2563EB"/>
+                            <path d="M20 16V32M16 20H32" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <p class="process-text">Submit your enquiry for a blood test near you in Surat</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-card">
+                    <div class="step-badge">2</div>
+                    <div class="process-icon green">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="24" fill="#10B981"/>
+                            <path d="M32 24L24 16L16 24M24 16V32" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="process-text">Our health advisor confirms your test and schedule</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-card">
+                    <div class="step-badge">3</div>
+                    <div class="process-icon purple">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="24" fill="#8B3DFF"/>
+                            <path d="M24 20C26.2091 20 28 18.2091 28 16C28 13.7909 26.2091 12 24 12C21.7909 12 20 13.7909 20 16C20 18.2091 21.7909 20 24 20Z" fill="white"/>
+                            <path d="M16 36C16 30 20 28 24 28C28 28 32 30 32 36" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <p class="process-text">Sample is collected safely from your home</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-card">
+                    <div class="step-badge">4</div>
+                    <div class="process-icon orange">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="48" rx="24" fill="#FF7A00"/>
+                            <path d="M16 24L24 16L32 24M24 16V32" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p class="process-text">Digital reports delivered within 24–48 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Blood Test Categories -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Blood Test Categories Available in Surat</h2>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon blue">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8V24M8 16H24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Thyroid Test in Surat</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon red">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C16 8 20 12 20 16C20 20 16 24 16 24C16 24 12 20 12 16C12 12 16 8 16 8Z" fill="white"/>
+                            <path d="M16 12V20" stroke="#FF2D2D" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Diabetes Blood Test</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon green">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 10C18.2091 10 20 11.7909 20 14C20 16.2091 18.2091 18 16 18C13.7909 18 12 16.2091 12 14C12 11.7909 13.7909 10 16 10Z" fill="white"/>
+                            <path d="M10 24C10 20 13 18 16 18C19 18 22 20 22 24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Full Body Health Checkup</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon pink">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 12C18.2091 12 20 10.2091 20 8C20 5.79086 18.2091 4 16 4C13.7909 4 12 5.79086 12 8C12 10.2091 13.7909 12 16 12Z" fill="white"/>
+                            <path d="M16 12C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20C13.7909 20 12 18.2091 12 16C12 13.7909 13.7909 12 16 12Z" fill="white"/>
+                            <path d="M16 20C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28C13.7909 28 12 26.2091 12 24C12 21.7909 13.7909 20 16 20Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Heart Health Checkup</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon purple">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 10C18.2091 10 20 11.7909 20 14C20 16.2091 18.2091 18 16 18C13.7909 18 12 16.2091 12 14C12 11.7909 13.7909 10 16 10Z" fill="white"/>
+                            <path d="M10 24C10 20 13 18 16 18C19 18 22 20 22 24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Women Health Blood Tests</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon orange">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 10C18.2091 10 20 11.7909 20 14C20 16.2091 18.2091 18 16 18C13.7909 18 12 16.2091 12 14C12 11.7909 13.7909 10 16 10Z" fill="white"/>
+                            <path d="M10 24C10 20 13 18 16 18C19 18 22 20 22 24" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Senior Citizen Health Packages</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon teal">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="12" width="12" height="8" rx="2" fill="white"/>
+                            <path d="M14 8V12M18 8V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Preventive Health Checkups in Surat</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Trusted Diagnostic Lab -->
+    <section class="trusted-lab-section">
+        <div class="container">
+            <div class="trusted-lab-content">
+                <div class="trusted-lab-image">
+                    <div class="lab-image-card">
+                        <div class="lab-image-placeholder">
+                            <svg width="100%" height="100%" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="500" height="400" rx="24" fill="#FF7A00"/>
+                                <rect x="50" y="50" width="400" height="300" rx="12" fill="white" opacity="0.9"/>
+                                <circle cx="250" cy="200" r="40" fill="#2563EB" opacity="0.3"/>
+                                <path d="M150 300L250 200L350 300" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="trusted-lab-text">
+                    <div class="badge-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="section-title">Trusted Diagnostic Lab & Quality Assurance</h2>
+                    <p class="trusted-lab-description">
+                        Our diagnostic laboratories are NABL certified and follow strict quality control protocols 
+                        to ensure accurate and reliable test results. We partner with leading certified lab facilities 
+                        across Surat to deliver timely and precise diagnostic services.
+                    </p>
+                    <p class="trusted-lab-description">
+                        Every sample undergoes rigorous quality checks, and our experienced technicians ensure 
+                        that all tests meet international standards. We are committed to providing you with 
+                        trustworthy diagnostic reports that help in accurate diagnosis and treatment planning.
+                    </p>
+                    <div class="certifications-block">
+                        <div class="cert-label">Certifications:</div>
+                        <div class="cert-card">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L4 7V12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12V7L12 2Z" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>NABL / ISO certified lab partners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">FAQs – Blood Test & Diagnostic Lab in Surat</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is home blood sample collection available in Surat?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we provide convenient home blood sample collection services across Surat. Our trained phlebotomists visit your home at your preferred time to collect samples safely and hygienically.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How soon will I get my blood test reports?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most routine blood test reports are available within 24 hours. Some specialized tests may take 48–72 hours. Reports can be accessed online or collected from the lab.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need fasting before blood tests?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Fasting is required for certain tests such as lipid profile or fasting blood sugar. Our team will inform you in advance if fasting is necessary for your selected tests.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are the labs certified?</span>
+                        <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our diagnostic laboratories are NABL certified and follow strict quality standards to ensure accurate and reliable test results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Sticky Bottom CTA Bar -->
+    <div class="sticky-cta-bar" id="stickyCtaBar">
+        <div class="container">
+            <div class="cta-content">
+                <h3 class="cta-title">Book Blood Test at Home in Surat Today</h3>
+                <div class="cta-buttons">
+                    <a href="tel:18001234567" class="cta-btn cta-call">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.3333 14.075V16.575C18.3333 17.1417 18.1083 17.6667 17.725 18.05C17.3417 18.4333 16.8167 18.6583 16.25 18.6583C7.44167 18.325 1.675 12.5583 1.34167 3.75C1.34167 3.18333 1.56667 2.65833 1.95 2.275C2.33333 1.89167 2.85833 1.66667 3.425 1.66667H5.925C6.49167 1.66667 7.01667 1.89167 7.4 2.275C7.78333 2.65833 8.00833 3.18333 8.175 3.75L8.80833 6.19167C8.90833 6.625 8.85 7.08333 8.64167 7.475C8.43333 7.86667 8.09167 8.16667 7.66667 8.31667L5.83333 9.05C7.15 11.8833 9.11667 13.85 11.95 15.1667L12.6833 13.3333C12.8333 12.9083 13.1333 12.5667 13.525 12.3583C13.9167 12.15 14.375 12.0917 14.8083 12.1917L17.25 12.825C17.8167 12.9917 18.3417 13.2167 18.725 13.6C19.1083 13.9833 19.3333 14.5083 19.3333 15.075L18.3333 14.075Z" fill="currentColor"/>
+                        </svg>
+                        Call Now
+                    </a>
+                    <a href="https://wa.me/919876543210" class="cta-btn cta-whatsapp" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 1.66667C5.4 1.66667 1.66667 5.4 1.66667 10C1.66667 11.4917 2.08333 12.875 2.80833 14.0583L1.66667 18.3333L5.94167 17.1917C7.125 17.9167 8.50833 18.3333 10 18.3333C14.6 18.3333 18.3333 14.6 18.3333 10C18.3333 5.4 14.6 1.66667 10 1.66667ZM13.3333 13.3333L11.6667 13.3333L10.8333 12.5L9.16667 13.3333L7.5 11.6667L6.66667 10L7.5 8.33333L9.16667 6.66667L10.8333 7.5L12.5 6.66667L13.3333 8.33333L12.5 10L13.3333 11.6667V13.3333Z" fill="currentColor"/>
+                        </svg>
+                        WhatsApp for Free Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 8: Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <span>H+</span>
+                        </div>
+                        <h4>Diagnostic & Pathology Lab in Surat, Gujarat</h4>
+                    </div>
+                    <p class="footer-description">
+                        Trusted diagnostic services with free home blood sample collection across Surat.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.5 12.675V15.175C16.5 15.7417 16.275 16.2667 15.8917 16.65C15.5083 17.0333 14.9833 17.2583 14.4167 17.2583C6.44167 16.925 1.075 11.5583 0.741667 3.58333C0.741667 3.01667 0.966667 2.49167 1.35 2.10833C1.73333 1.725 2.25833 1.5 2.825 1.5H5.325C5.89167 1.5 6.41667 1.725 6.8 2.10833C7.18333 2.49167 7.40833 3.01667 7.575 3.58333L8.20833 6.025C8.30833 6.45833 8.25 6.91667 8.04167 7.30833C7.83333 7.7 7.49167 8 7.06667 8.15L5.23333 8.88333C6.55 11.7167 8.51667 13.6833 11.35 15L12.0833 13.1667C12.2333 12.7417 12.5333 12.4 12.925 12.1917C13.3167 11.9833 13.775 11.925 14.2083 12.025L16.65 12.6583C17.2167 12.825 17.7417 13.05 18.125 13.4333C18.5083 13.8167 18.7333 14.3417 18.7333 14.9083L16.5 12.675Z" fill="currentColor"/>
+                            </svg>
+                            <span>1800-123-4567</span>
+                        </li>
+                        <li>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 1.5C4.85 1.5 1.5 4.85 1.5 9C1.5 10.2917 1.875 11.5 2.525 12.525L1.5 16.5L5.475 15.475C6.5 16.125 7.70833 16.5 9 16.5C13.15 16.5 16.5 13.15 16.5 9C16.5 4.85 13.15 1.5 9 1.5ZM12 12L10.5 12L9.75 11.25L8.5 12L7 10.5L6.25 9L7 7.5L8.5 6L10.5 7.5L12 6L12.75 7.5L12 9L12.75 10.5L12 12Z" fill="currentColor"/>
+                            </svg>
+                            <span>WhatsApp Enquiry</span>
+                        </li>
+                        <li>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 3H3C2.175 3 1.5 3.675 1.5 4.5V13.5C1.5 14.325 2.175 15 3 15H15C15.825 15 16.5 14.325 16.5 13.5V4.5C16.5 3.675 15.825 3 15 3ZM15 6L9 10.5L3 6V4.5L9 9L15 4.5V6Z" fill="currentColor"/>
+                            </svg>
+                            <span>support@healthdiagnostics.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Service Areas</h4>
+                    <p class="service-areas-subtitle">We serve across Surat including:</p>
+                    <div class="location-pills">
+                        <span class="location-pill">Adajan</span>
+                        <span class="location-pill">Vesu</span>
+                        <span class="location-pill">City Light</span>
+                        <span class="location-pill">Varachha</span>
+                        <span class="location-pill">Katargam</span>
+                        <span class="location-pill">Udhna</span>
+                        <span class="location-pill">Piplod</span>
+                        <span class="location-pill">Pal</span>
+                        <span class="location-pill">Nanpura</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="footer-disclaimer">Disclaimer: This diagnostic service is independently operated and inspired by leading healthcare platforms.</p>
+                <p class="footer-copyright">© 2026 HealthDiagnostics Surat. All rights reserved. NABL & ISO Certified Laboratory Services.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
