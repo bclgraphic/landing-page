@@ -325,17 +325,24 @@ body {
 
 .packages-slider-wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.packages-slider-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
 .packages-slider {
     display: flex;
     gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 20px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    width: 100%;
 }
 
 .packages-slider::-webkit-scrollbar {
@@ -343,14 +350,64 @@ body {
 }
 
 .package-card {
-    min-width: 100%;
-    scroll-snap-align: start;
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
     background: white;
     padding: 32px;
     border-radius: var(--radius-xl);
     border: 2px solid var(--border-color);
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Arrow Navigation Buttons */
+.slider-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+    color: var(--primary-color);
+}
+
+.slider-arrow:hover:not(.disabled) {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.slider-arrow:active:not(.disabled) {
+    transform: scale(0.95);
+}
+
+.slider-arrow.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: var(--bg-secondary);
+    color: var(--text-light);
+    border-color: var(--border-color);
+}
+
+.slider-arrow.disabled:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+}
+
+.slider-arrow svg {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
 }
 
 .package-badge {
@@ -985,6 +1042,12 @@ body {
         grid-template-columns: 1fr;
         gap: 32px;
     }
+
+    /* Tablet: Show 2 packages */
+    .package-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+        min-width: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1055,8 +1118,18 @@ body {
     }
 
     .package-card {
-        min-width: 85%;
-        margin: 0 auto;
+        flex: 0 0 100%;
+        min-width: 0;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slider-arrow svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
